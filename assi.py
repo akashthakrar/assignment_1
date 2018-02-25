@@ -18,4 +18,12 @@ for x in opar:
 		os.popen("mv ./"+x+" ./videos")
 	else:
 		os.popen("mv ./"+x+" ./others")
+		
+process1 = os.popen('find -type f -exec du / -aSh 2>/dev/null {} + | sort -rh 2>/dev/null | head -n 10')
+op = process1.read()
+print '10 biggest files on system are : '
+print op
+
+
 process.close()
+process1.close()
